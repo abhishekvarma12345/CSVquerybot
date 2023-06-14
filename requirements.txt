@@ -3,5 +3,6 @@ ipywidgets
 tqdm
 python-dotenv
 chainlit
+langchain
 openai
 pandasai
