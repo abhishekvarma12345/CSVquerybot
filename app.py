@@ -30,7 +30,7 @@ async def ask_file():
     msg = cl.Message(content=f"{file.name} Upload Successful!")
     await msg.send()
     await cl.sleep(2)
-    await msg.update(content="I am ready to answer the queries on {file.name}.")
+    await msg.update(content=f"I am ready to answer the queries on {file.name}.")
     
 
 @cl.on_message
