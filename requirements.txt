@@ -6,3 +6,4 @@ chainlit
 langchain
 openai
 pandasai
+tabulate
