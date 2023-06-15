@@ -12,7 +12,7 @@ This Generative LLM bot helps to extract useful insights from the given csv file
     ```
 2. cd into the app directory.
 3. Edit the filename `.env.template` to `.env` and then copy and paste the OpenAI api-key.
-4.. Run the bash script `init_setup.sh` to create the conda environment with required dependencies.
+4. Run the bash script `init_setup.sh` to create the conda environment with required dependencies.
     ```bash
     bash init_setup.sh
     ```
