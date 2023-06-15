@@ -2,12 +2,15 @@ import os
 import pandas as pd
 from langchain.agents import create_pandas_dataframe_agent
 from langchain.llms import OpenAI
+from langchain.chat_models import ChatOpenAI
+from langchain.agents.agent_types import AgentType
 import chainlit as cl
 from Lib.io import BytesIO
 
 CUSTOM_PREFIX = """
 You are working with a pandas dataframe in Python. The name of the dataframe is `df`.
-if Question is about the amount then report in euros. 
+Add € or euros to report the amount in the final answer. If possible report the amount in euro currency format.
+euro currency format: USD - "$191,533.39" -> euro - "€191.533,39".
 You should use the tools below to answer the question posed of you:"""
 llm = OpenAI(temperature=0)
 
@@ -37,7 +40,12 @@ async def ask_file():
 async def request(question: str):
     bytes_data = cl.user_session.get("data")
     df = pd.read_csv(BytesIO(bytes_data))
-    agent = create_pandas_dataframe_agent(llm, df, prefix=CUSTOM_PREFIX, verbose=True)
+    agent = create_pandas_dataframe_agent(
+    llm, 
+    df,
+    prefix=CUSTOM_PREFIX,
+    verbose=True
+    )
     result = agent.run(question)
     await cl.Message(content=f"{result}").send()
 
