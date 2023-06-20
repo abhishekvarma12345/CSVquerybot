@@ -24,10 +24,9 @@ This Generative LLM bot helps to extract useful insights from the given csv file
     ```bash
     chainlit run app.py -w
     ```
-App demo:
+## App demo:
+
 https://github.com/abhishekvarma12345/CSVquerybot/assets/53211164/3fbb44d6-67f0-4ce4-88b4-5d247ed6661d
-
-
 
 
 
